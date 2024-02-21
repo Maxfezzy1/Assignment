@@ -2,51 +2,53 @@
 {
     private static void Main(string[] args)
     {
-        List<Teacher> teacherList = new List<Teacher>()
-        {
-            new Teacher{ID = 001, Name = "Chibuzor", Age = 23, colour = "Brown", LastJob = "Capenter"},
-            new Teacher{ID = 002, Name = "Mary", Age = 33, colour = "Blue", LastJob = "Tailor"},
-            new Teacher{ID = 003, Name = "John", Age = 20, colour = "Black", LastJob = "Farmer"},
-            new Teacher{ID = 004, Name = "Joshua", Age = 15, colour = "Red", LastJob = "Driver"},
-            new Teacher{ID = 005, Name = "Max", Age = 13, colour = "Green", LastJob = "Chef"},
-        };
+        //queue
+       Queue<string> Names = new Queue<string>();
+        Names.Enqueue("Victor");
+        Names.Enqueue("Miracle");
+        Names.Enqueue("Joy");
+        Names.Enqueue("Mimi");
+        Names.Enqueue("Ifenna");
 
-        var teachers = from t in teacherList
-                       select new Teacher() { Name = t.Name, Age = t.Age };
-        foreach (var teacher in teachers)
+        Console.WriteLine("There are {0} ready to play this Game", Names.Count());
+
+        var Eliminate = Names.Dequeue();
+        Console.WriteLine("{0} has been Eliminated from the Game",Eliminate);
+
+        Console.WriteLine("There are {0} left in this Game", Names.Count());
+
+        var Eliminate2 = Names.Dequeue();
+        var Eliminate3 = Names.Dequeue();
+        Console.WriteLine("{0} & {1} has also been eliminated from the game",Eliminate2, Eliminate3);
+
+        Console.WriteLine("So Ladies and Gentlemen we have {0} left in this Game",Names.Count());
+
+        var Eliminate4 = Names.Dequeue();
+        var Eliminate5 = Names.Dequeue();
+
+        Console.WriteLine("Sadly {0} has been eliminated & your WINNER is {1}", Eliminate4,Eliminate5);
+
+        Console.WriteLine("THE STACK IS BELOW..................");
+
+        //Stack
+        Stack<int> Cash = new Stack<int>();
+        Cash.Push(100);
+        Cash.Push(200);
+        Cash.Push(300);
+        Cash.Push(400);
+        Cash.Push(500);
+
+        Console.WriteLine("There are {0} people keeping Cash with me",Cash.Count());
+
+        while(Cash.Count() > 0)
         {
-            Console.WriteLine(teacher.Name + " " + teacher.Age);
+            Console.WriteLine(Cash.Pop());
         }
+        Console.WriteLine("There are {0} people keeping Cash with me", Cash.Count());
 
-        //Console.WriteLine("Do you want to buy a coffe - Yes or No");
-        //string UserDecision = Console.ReadLine();
-
-        //switch(UserDecision.ToUpper())
-        //{
-        //    case "YES":
-        //        Console.WriteLine("Thank you");
-        //        break;
-
-        //    case "NO":
-        //        Console.WriteLine("No Problem");
-        //        break;
-        //        default: Console.WriteLine("this {0} is not a valid answer",UserDecision); break;
-
-        //}
 
 
 
     }
 }
 
-public class Teacher
-{ 
-    public int ID {  get; set; }
-    public string Name { get; set; }
-    public int Age { get; set; }
-    public string colour { get; set; }
-    public string LastJob { get; set; }
-
-
-
-}
