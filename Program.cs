@@ -1,50 +1,41 @@
-﻿internal class Program
+﻿using Assignment;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
-        //queue
-       Queue<string> Names = new Queue<string>();
-        Names.Enqueue("Victor");
-        Names.Enqueue("Miracle");
-        Names.Enqueue("Joy");
-        Names.Enqueue("Mimi");
-        Names.Enqueue("Ifenna");
+       Wordsmean Word1 = new Wordsmean() { Word = "Pray", Meaning = " address a prayer to God or another deity" };
+        Wordsmean Word2 = new Wordsmean() { Word = "Dance", Meaning = "Dance is an art form, often classified as a sport, consisting of sequences of body movements with aesthetic" };
+        Wordsmean Word3 = new Wordsmean() { Word = "Deity", Meaning = " a god or goddess" };
+        Wordsmean Word4 = new Wordsmean() { Word = "Oblivion", Meaning = " the state of being unaware or unconscious of what is happening around one" };
+        Wordsmean Word5 = new Wordsmean() { Word = "Careless", Meaning = "not giving sufficient attention or thought to avoiding harm or errors" };
+        Wordsmean Word6 = new Wordsmean() { Word = "Champion", Meaning = " a person who has surpassed all rivals in a sporting contest or other competition" };
+        Wordsmean Word7 = new Wordsmean() { Word = "Awkward", Meaning = " causing difficulty; hard to do or deal with" };
+        Wordsmean Word8 = new Wordsmean() { Word = "Insane", Meaning = "very foolish, irrational, or strange" };
+        Wordsmean Word9 = new Wordsmean() { Word = "Independence", Meaning = "Independence is a condition of a nation, country, or state, in which residents and population, or some portion thereof, exercise self-government" };
+        Wordsmean Word10 = new Wordsmean() { Word = "Patriot", Meaning = "a person who vigorously supports their country and is prepared to defend it against enemies or detractors" };
+       
 
-        Console.WriteLine("There are {0} ready to play this Game", Names.Count());
+        Dictionary<string,Wordsmean> Dictionary = new Dictionary<string,Wordsmean>();
+        Dictionary.Add(Word1.Word, Word1);
+        Dictionary.Add(Word2.Word, Word2);
+        Dictionary.Add(Word3.Word, Word3);
+        Dictionary.Add(Word4.Word, Word4);
+        Dictionary.Add(Word5.Word, Word5);
+        Dictionary.Add(Word6.Word, Word6);
+        Dictionary.Add(Word7.Word, Word7);
+        Dictionary.Add(Word8.Word, Word8);
+        Dictionary.Add(Word9.Word, Word9);
+        Dictionary.Add(Word10.Word, Word10);
 
-        var Eliminate = Names.Dequeue();
-        Console.WriteLine("{0} has been Eliminated from the Game",Eliminate);
-
-        Console.WriteLine("There are {0} left in this Game", Names.Count());
-
-        var Eliminate2 = Names.Dequeue();
-        var Eliminate3 = Names.Dequeue();
-        Console.WriteLine("{0} & {1} has also been eliminated from the game",Eliminate2, Eliminate3);
-
-        Console.WriteLine("So Ladies and Gentlemen we have {0} left in this Game",Names.Count());
-
-        var Eliminate4 = Names.Dequeue();
-        var Eliminate5 = Names.Dequeue();
-
-        Console.WriteLine("Sadly {0} has been eliminated & your WINNER is {1}", Eliminate4,Eliminate5);
-
-        Console.WriteLine("THE STACK IS BELOW..................");
-
-        //Stack
-        Stack<int> Cash = new Stack<int>();
-        Cash.Push(100);
-        Cash.Push(200);
-        Cash.Push(300);
-        Cash.Push(400);
-        Cash.Push(500);
-
-        Console.WriteLine("There are {0} people keeping Cash with me",Cash.Count());
-
-        while(Cash.Count() > 0)
+        foreach(var word in Dictionary)
         {
-            Console.WriteLine(Cash.Pop());
+            Console.WriteLine("Key word"+" "+ word.Key);
+            var words = word.Value;
+            Console.WriteLine("meaning = {0}", words.Meaning);
         }
-        Console.WriteLine("There are {0} people keeping Cash with me", Cash.Count());
+
+
 
 
 
